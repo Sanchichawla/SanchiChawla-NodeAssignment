@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body {
+      background-image: url("https://thumbs.dreamstime.com/b/applause-concert-rock-band-background-front-performing-44926186.jpg");
+      height: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    .container {
+      font-family: Arial, Helvetica, sans-serif;
+      margin-left: 400px;
+      margin-right: 400px;
+      margin-top: 100px;
+      padding: 16px;
+      background-color: white
+    }
+    input[type=password],input[type=email] {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+    }
+    input[type=password]:focus,input[type=email]:focus{
+      background-color: #ddd;
+      outline: none;
+    }
+    hr {
+      border: 1px solid #f1f1f1;
+      margin-bottom: 25px;
+    }
+    .loginbtn {
+      background-color: rgb(160, 16, 255);
+      color: white;
+      padding: 16px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.9;
+      border-radius: 10px;
+    }
+    .loginbtn:hover {
+      opacity: 1;
+    }
+    .signupbtn {
+      background-color: crimson;
+      border-radius: 10px;
+      color: white;
+      padding: 16px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.9;
+    }
+    .signupbtn:hover {
+      opacity: 1;
+    }
+</style>
+</head>
+
+<body>
+    <div class="container">
+    <form method="POST">
+    <h1 style="text-align: center">Login</h1>
+    <hr>
+        <label for="email"><b>Email Address: </b></label>
+        <input type="email" name="email" placeholder="Enter Email" required style="border-radius: 10px;" ><br>
+
+        <label for="pass"><b>Password: </b></label>
+        <input type="password" name="password" placeholder="Enter Password" style="border-radius: 10px;"  required>
+
+        <button formaction="login" class="loginbtn">Login</button><br>
+
+    </form>
+    <form method="POST" action="/callsignup">
+            <button type="submit" class="signupbtn">Signup</button>
+    </form>
+    </div>
+</body>
+</html>

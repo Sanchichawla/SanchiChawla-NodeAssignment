@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url("https://thumbs.dreamstime.com/b/applause-concert-rock-band-background-front-performing-44926186.jpg");
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .container{
+            margin-top: 300px;
+            margin-left: 500px;
+            margin-right: 400px;
+        }
+        
+        .text{
+            padding: 10px 20px;
+            font-size: 14px; 
+            border-radius: 10px; 
+            border: 2px solid black;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+    <form action="/update" method="POST">
+        <input type="hidden"  value={{id}} name="id">
+        <input type="text" class="text" name="newbandname">
+        <button type="submit" class="text" style="color: white;background: blueviolet;"name="updatebutton">UPDATE</button>
+    </form>
+    </div>
+</body>
+</html>

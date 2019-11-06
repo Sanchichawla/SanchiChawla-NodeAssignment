@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home</title>
+  <style>
+      body {
+        background-image: url("https://thumbs.dreamstime.com/b/applause-concert-rock-band-background-front-performing-44926186.jpg");
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .btn {
+        border: 2px solid black;
+        background-color: white;
+        color: black;
+        padding: 14px 28px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 12px;
+    }
+    .button{
+        color: white;
+        background: rgb(103, 77, 110); 
+    }
+    .button:hover{
+        background-color: white;
+        color: rgb(103, 77, 110);
+        border-color: rgb(103, 77, 110);
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+    }
+    .format{
+        padding: 10px 20px;
+        font-size: 14px; 
+        border-radius: 10px; 
+        border: 2px solid black;
+    }
+    .table{
+        border: 1px solid black;
+        width:70%;
+        height: 40%;
+        text-align: center;
+        margin-top: 30px;
+        background-color: white;
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+    }
+    .table td, .table th {
+        border: 1px solid #ddd;
+        padding: 4px;
+    }
+    .table tr:nth-child(even){background-color: #f2f2f2;}
+    .table tr:hover {background-color: #ddd;}
+    .table th {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        text-align: left;
+        background-color: rgb(103, 77, 110);
+        color: white;
+    }
+    .name{
+        font-size:40px;
+        color: white;
+    }
+    .btn-primary{
+        border: 2px solid black;
+        background-color: white;
+        color: black;
+        padding: 14px 28px;
+        font-size: 16px;
+        cursor: pointer;
+        border-color: rgb(103, 77, 110);
+        color: rgb(103, 77, 110);
+        border-radius: 10px;
+    }
+    .btn-primary:hover {
+        background-color: rgb(103, 77, 110);
+        color: white;
+    }
+</style>
+</head>
+
+<body>
+  <form action="/logout" style="float: right">
+        <button type="submit" class="btn button">Logout</button>
+  </form>
+  <br>
+  <div class="name">
+    Hello, {{name}} !!
+ </div>
+ <div class="container">
+ <form method="POST" action="/add" style="font-size:x-large;font:bold"> Enter the Name of the Band:<br>
+    <input type="text" class="format" name="band"id=bandId>
+    <button type="submit" class="format" style="color: white;background: rgb(103, 77, 110);">Add➕</button>
+    </form>
+  <br>
+ </div>
+ <h1 style="font:bold;font-size:45px;text-align: center;;">MY BANDS LIST</h1>
+ <div class="tablecentered">
+  <table border="1" align="center" class="table">
+    <tr>
+      <th style="font-size:larger">Band Name</th>
+      <th style="font-size:larger">Action</th>
+    </tr>
+    {{#each bands as |band|}}
+    <tr>
+      <td>{{band.bandname}}</td>
+      <td>
+          <br>
+        <form method="POST" action="/delete?_method=DELETE">
+        <button class="btn-primary" name="bandDelete" value={{band.id}}>Delete</button>
+        </form>
+        <br>
+        <form method="POST" action="/callupdate">
+        <input type="hidden" value={{band.id}} name="id">
+        <input type="submit" class="btn-primary" name="updateband" value="Update">
+        </form>
+        <br>
+      </td>
+    </tr>
+    {{/each}}
+  </table>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</body>
+</html>
